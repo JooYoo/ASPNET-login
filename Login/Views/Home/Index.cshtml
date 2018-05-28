@@ -2,30 +2,48 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-3">
+            <!-- 2 empty sections in the left -->
+        </div>
+        <div class="col-md-6 ">
+            <div class="card row justify-content-center align-items-center shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 60px; padding-top: 80px; padding-bottom: 80px">
+                <div class="card-body ">
+
+                    <h4 class="card-title text-center mb-4 mt-1" >Sign in</h4>
+                    <hr style="margin-bottom: 40px; margin-top: 40px">
+                    <p class="text-success text-center"> </p>
+
+                    <div class="form-group" >
+                        <input name="" class="form-control" style="width:300px" placeholder="Email or login" type="email" style="width: 200px">
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group" >
+                        <input class="form-control" style="width:300px" placeholder="******" type="password">
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="remember"> Remember Me
+                        </label>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-primary btn-block" style="width: 250px; margin-top: 60px "> Login </button>
+                    </div> <!-- form-group// -->
+
+                    <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
+                </div>
+            </div> <!-- card.// -->
+        </div>
+        <div class="col-md-3">
+            <!-- 2 empty sections in the right -->
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+
+
+
