@@ -4,23 +4,31 @@
 
 <div class="container">
     <div class="row justify-content-md-center">
-        <div class="col-md-3">
-            <!-- 2 empty sections in the left -->
+        <div class="col-md-2">
+            <div>ACCOUNT: accountt</div>
+            <div>PASSWORD: passwordd</div>
         </div>
+        <div class="col-md-1"></div>
         <div class="col-md-6 ">
             <div class="card row justify-content-center align-items-center shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 60px; padding-top: 80px; padding-bottom: 80px">
                 <div class="card-body ">
-
-                    <h4 class="card-title text-center mb-4 mt-1" >Sign in</h4>
+                    @*Title*@
+                    <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
                     <hr style="margin-bottom: 40px; margin-top: 40px">
                     <p class="text-success text-center"> </p>
 
-                    <div class="form-group" >
-                        <input name="" class="form-control" style="width:300px" placeholder="Email or login" type="email" style="width: 200px">
-                    </div> <!-- form-group// -->
+                    @*LoginResult*@
+                    <div id="ValidatorTx" class="alert alert-danger" role="alert" style=" display: none">
+                        Failed
+                    </div>
 
-                    <div class="form-group" >
-                        <input class="form-control" style="width:300px" placeholder="******" type="password">
+                    @*Account*@
+                    <div class="form-group">
+                        <input id="AccountTx" name="Account" class="form-control" style="width:300px" placeholder="Email or login" type="email" style="width: 200px">
+                    </div> <!-- form-group// -->
+                    @*Password*@
+                    <div class="form-group">
+                        <input id="PasswordTx" name="Password" class="form-control" style="width:300px" placeholder="******" type="password">
                     </div> <!-- form-group// -->
 
                     <div class="form-group">
@@ -30,7 +38,7 @@
                     </div>
 
                     <div class="form-group col-12">
-                        <button type="submit" class="btn btn-primary btn-block" style="width: 250px; margin-top: 60px "> Login </button>
+                        <button id="SubmitBtn" type="submit" class="btn btn-primary btn-block" style="width: 250px; margin-top: 60px "> Login </button>
                     </div> <!-- form-group// -->
 
                     <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
@@ -38,10 +46,57 @@
             </div> <!-- card.// -->
         </div>
         <div class="col-md-3">
-            <!-- 2 empty sections in the right -->
+            @*right side*@
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () { // 准备jQuery
+
+            $("#SubmitBtn").click(function () { // 如果Bt被点击，发生的情况
+                // 获取两个输入框的内容
+                var getAccountTx = $("#AccountTx");
+                var getPasswordTx = $("#PasswordTx");
+                var getValidatorTx = document.getElementById("ValidatorTx");
+
+                // 生成注册信息，改变样式
+                if ('@(ViewBag.Account)' === getAccountTx.val() && '@(ViewBag.Password)' === getPasswordTx.val()) {
+                    console.log("Success");
+                    getValidatorTx.style.display = "block";
+                    getValidatorTx.className = "alert alert-success";
+                    getValidatorTx.innerHTML = "Success";
+                } else {
+                    console.log("failed");
+                    getValidatorTx.style.display = "block";
+                    getValidatorTx.className = "alert alert-danger";
+                    getValidatorTx.innerHTML = "Failed";
+                }
+            });
+
+            // 在Account区域点按回车，直接跳进Password区域
+            $('#AccountTx').keypress(function (event) {
+                if (event.keyCode === 13 || event.which === 13) {
+                    $('#PasswordTx').focus();
+                    event.preventDefault();
+                }
+            });
+
+            // 在Password区域点按回车，直接点击按钮
+            $('#PasswordTx').keypress(function(event) {
+                if (event.keyCode === 13 || event.which === 13) {
+                    $('#SubmitBtn').click();
+                    event.preventDefault();
+                }
+            });
+            
+        });
+
+    </script>
+
+
+}
 
 
 

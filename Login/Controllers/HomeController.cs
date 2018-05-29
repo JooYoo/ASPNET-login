@@ -10,6 +10,9 @@ namespace Login.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Account = "accountt";
+            ViewBag.Password = "passwordd";
+
             return View();
         }
 
